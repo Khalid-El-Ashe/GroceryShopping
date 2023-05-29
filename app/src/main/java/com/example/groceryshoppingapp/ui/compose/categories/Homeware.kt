@@ -1,0 +1,61 @@
+package com.example.groceryshoppingapp.ui.compose.categories
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import com.example.groceryshoppingapp.R
+import com.example.groceryshoppingapp.ui.compose.destinations.AddItemScreenDestination
+import com.example.groceryshoppingapp.ui.compose.destinations.SearchScreenDestination
+import com.example.groceryshoppingapp.ui.theme.SplashColor
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+
+@Destination
+@Composable
+fun HomewareScreen(navigator: DestinationsNavigator) {
+    Column(modifier = Modifier.fillMaxSize()) {
+        TopAppBar(
+            contentColor = Color.White,
+            backgroundColor = SplashColor,
+            title = {
+                Box(modifier = Modifier.fillMaxSize()) {
+                    Text(text = "Homeware", modifier = Modifier.align(Alignment.CenterStart))
+                }
+            },
+             navigationIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_back),
+                    contentDescription = "back", modifier = Modifier
+                        .padding(start = 10.dp)
+                        .clickable {
+                            navigator.navigateUp()
+                        }
+                )
+            }, actions = {
+                IconButton(onClick = {
+                    navigator.navigate(SearchScreenDestination)
+                }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_search),
+                        contentDescription = "search",
+                        modifier = Modifier
+                            .padding(end = 10.dp),
+                        tint = Color.White
+                    )
+                }
+            }
+        )
+    }
+}

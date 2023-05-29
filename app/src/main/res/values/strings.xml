@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GroceryShopping</string>
+    <string name="title_activity_sign_in">SignIn</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
+    <string name="title_activity_store">StoreActivity</string>
+    <string name="title_activity_search">SearchActivity</string>
+</resources>
